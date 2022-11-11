@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Marketing Single Page Application</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="jwt-decode.min.js"></script>
+    <script src="keycloak.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center"><h3>Marketing Single Page Application. HTML5</h3></div>
+    <div class="wrapper">
+        <div id="not-authenticated" class="menu">
+            <button name="loginBtn" onclick="keycloak.login()">Login</button>
+        </div>
+
+        <div id="authenticated" class="menu">
+            <button name="tokenBtn" onclick="showTokens()">Token</button>
+            <button name="logoutBtn" onclick="keycloak.logout()">Logout</button>
+            <button name="accountBtn" onclick="keycloak.accountManagement()">Account</button>
+        </div>
+
+        <div class="content">
+            <button name="publicBtn" onclick="request('list')">List public marketing campaigns</button>
+            <button name="securedBtn" onclick="request('add')">Add a public marketing campaign</button>
+            <button name="adminBtn" onclick="request('delete')">Delete a public marketing campaign</button>
+
+            <div class="message" id="message"></div>
+            
+        </div>
+        <div class="content" id="tokens">
+            
+            <pre class="output" id="idtoken"></pre>
+          
+            <pre class="output" id="accesstoken"></pre>
+           
+            <pre class="output" id="refreshtoken"></pre>
+        </div>
+    </div>
+</body>
+
+</html>

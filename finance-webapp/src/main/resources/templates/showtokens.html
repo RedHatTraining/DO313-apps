@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quarkus Finance Web Application</title>
+
+    <script type="text/javascript">
+        function changeContent(url) {
+            document.getElelementById("messages").innerHTML = { contentMessages };
+            return (false);
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+
+<body>
+
+    <div class="banner-wrapper">
+        <div class="grid">
+            <div class="banner">
+                <div class="grid">
+                    <div class="callout">Quarkus Finance Web Application</div>
+                    <div class="app-details">
+                        <h5>Application</h5>
+                        <ul>
+                            <li>GroupId: <code>com.example</code></li>
+                            <li>ArtifactId: <code>finance-webapp</code></li>
+                            <li>Version: <code>1.0.0-SNAPSHOT</code></li>
+                            <li>Quarkus Version: <code>2.14.0.Final</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="grid">
+            <div class="left-column">
+                <br />&rsaquo;
+                <code>@Path: <a href="showtokens" class="path-link">/showtokens</a></code>
+                <br />&rsaquo; <code>@Path: <a href="/show-invoices" class="path-link">/showinvoices</a></code>
+                <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
+                <br />&rsaquo; <code>@Path: <a href="/show-campaigns" class="path-link">/showcampaigns</a></code>
+                <h4>This is your Access token, {token.getName()}</h4>
+                <div id="tokenOutput" style="width: 90%; border: 2px solid #000000;">                            
+                    {token}
+                </div> 
+            </div>
+            <div class="right-column" id="messages">
+                blabla
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

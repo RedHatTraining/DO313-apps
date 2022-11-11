@@ -1,0 +1,43 @@
+{
+  "name": "keycloak-request-token",
+  "version": "0.1.0",
+  "description": "Simple utility to request a token from a Keycloak Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*-test.js",
+    "lint": "jshint index.js test/*.js",
+    "prepublish": "./node_modules/nsp/bin/nsp check",
+    "coverage": "./node_modules/.bin/istanbul cover tape -- test/*.js",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
+    "docs": "./node_modules/.bin/jsdoc --verbose -d docs -t ./node_modules/ink-docstrap/template -R README.md index.js"
+  },
+  "keywords": [
+    "Keycloak",
+    "Node.js"
+  ],
+  "author": {
+    "name": "Red Hat, Inc."
+  },
+  "maintainers": {
+    "name": "Lucas Holmquist",
+    "email": "lholmqui@redhat.com"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "bucharest-gold/keycloak-admin-client"
+  },
+  "bugs": "https://github.com/bucharest-gold/keycloak-admin-client/issues",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "ink-docstrap": "^1.1.4",
+    "istanbul": "^0.4.3",
+    "jsdoc": "^3.4.0",
+    "jshint": "^2.9.1",
+    "nsp": "^2.3.0",
+    "tape": "^4.5.1"
+  }
+}
