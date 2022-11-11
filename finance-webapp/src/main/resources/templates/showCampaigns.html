@@ -1,11 +1,9 @@
-
-{@org.eclipse.microprofile.jwt.JsonWebToken token}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Quarkus Finance Web Application</title>
+    <title>Quarkus Finance Web Application:campaigns</title>
 
     <script type="text/javascript">
         function changeContent(url) {
@@ -23,7 +21,7 @@
         <div class="grid">
             <div class="banner">
                 <div class="grid">
-                    <div class="callout">Quarkus Finance Web Application</div>
+                    <div class="callout">Quarkus Finance Web Application: List of marketing Campaigns</div>
                     <div class="app-details">
                         <h5>Application</h5>
                         <ul>
@@ -39,26 +37,26 @@
     </div>
     <div class="content-wrapper">
         <div class="grid">
-            <div class="left-column" style="grid-column: span 4;">
+            <div class="left-column">
                 <br />&rsaquo;
                 <code>@Path: <a href="showtokens" class="path-link">/showtokens</a></code>
                 <br />&rsaquo; <code>@Path: <a href="/show-invoices" class="path-link">/showinvoices</a></code>
                 <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns</a></code>
-                <h4>This is your Access token, {token.getName()}</h4>
-                <div id="tokenOutput" style="width: 90%; border: 2px solid #000000;">                            
-                    {token}
-                </div>
-                <div><a href="/finance">Back</a></div> 
+                <br />&rsaquo; <code>@Path: <a href="/show-campaigns" class="path-link">/showcampaigns</a></code>
             </div>
-            <div class="right-column" id="messages" style="grid-column: span 4;">
-                Claims:
+            <div class="right-column" id="messages">
+                <h4>This application uses the following Quarkus extensions</h4>
                 <ul>
-                {#for claim in token.getClaimNames()}
-            
-                 <li>{claim} : {token.getClaim(claim)}</li>
-                {/for}
-              </ul>
+                    <li title="Support for servlets">Undertow Servlet</li>
+                    <li title="Verify Bearer access tokens and authenticate users with Authorization Code Flow">OpenID
+                        Connect (<a href="https://quarkus.io/guides/security-openid-connect" target="_blank">guide</a>)
+                    </li>
+                    <li title="Qute Templating integration for RESTEasy">RESTEasy Classic Qute (<a
+                            href="https://quarkus.io/guides/qute" target="_blank">guide</a>)</li>
+                </ul>
+                <h5><a href="https://quarkus.io/guides/">Quarkus Documentation</a></h5>
+                <p>Practical step-by-step guides to help you achieve a specific goal. Use them to help get your work
+                    done.</p>
             </div>
         </div>
     </div>
