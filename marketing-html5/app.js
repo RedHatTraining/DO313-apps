@@ -1,7 +1,7 @@
 import express from 'express';
 
 const app = express();
-const port = 8080;
+const port = 8081;
 
 app.use('/marketing-html5', express.static('src/main/webapp/'));
 

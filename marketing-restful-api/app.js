@@ -60,7 +60,8 @@ app.get('/campaign/delete', keycloak.protect('realm:marketing-admin'), function 
   logTokens(req);
   
     if (res.status == 403) {
-      res.json({message: 'You need the marketing-admin role'});
+      //res.json({message: 'You need the marketing-admin role'});
+      res.send(403,'You need the marketing-admin role');
     } else{
       res.json({message: 'You can select one to delete'});
     }
