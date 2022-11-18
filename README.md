@@ -30,8 +30,7 @@ It listen on http://localhost:3000/campaign
 
 finance-webapp
 --------------
-Based on https://github.com/quarkusio/quarkus-quickstarts/tree/2.14.0.Final/security-openid-connect-web-authentication-quickstart
-
+Based on https://github.com/thackba/quarkus-qute-oidc-example
 Web application (frontend+backend) made in Quarkus.
 
 To run:
