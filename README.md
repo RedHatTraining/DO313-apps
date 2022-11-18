@@ -7,7 +7,7 @@ It creates the realm, the alice user, and one client for each application.
  marketing-html5
  -----------------
 
- Based on https://github.com/keycloak/keycloak-quickstarts/tree/19.0.3/app-authz-photoz/photoz-html5-client
+ Based on https://github.com/keycloak/keycloak-quickstarts/tree/19.0.3/app-nodejs-html5
 
  Single Page Application served from a node.js wrapper.
 
@@ -18,7 +18,7 @@ It listen on http://localhost:8081/marketing-html5
 
 marketing-restful-api
 ---------------------
-Based on https://github.com/keycloak/keycloak-quickstarts/tree/19.0.3/app-authz-photoz/photoz-restful-api
+Based on https://github.com/keycloak/keycloak-quickstarts/tree/19.0.3/service-nodejs
 
 RESTful API made in Node.js.
 
