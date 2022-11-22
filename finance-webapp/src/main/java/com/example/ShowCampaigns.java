@@ -12,15 +12,15 @@ import static java.util.Objects.requireNonNull;
 public class ShowCampaigns {
     private final Template showCampaigns;
     public ShowCampaigns(Template showCampaigns) {
-        
+
         this.showCampaigns = requireNonNull(showCampaigns, "page is required");
     }
 
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get(@QueryParam("token") String token) {
-        
-        TemplateInstance theTemplate=showCampaigns.data("token", "accessToken");                    
+
+        TemplateInstance theTemplate=showCampaigns.data("token", "accessToken");
         return theTemplate;
     }
 

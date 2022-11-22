@@ -20,8 +20,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 import io.quarkus.qute.Template;
+import io.quarkus.qute.TemplateInstance;
 
-@Path("/showinvoices")
+@Path("/show-invoices")
 public class ShowInvoices {
 
     private final Template showInvoices;
@@ -41,6 +42,7 @@ public class ShowInvoices {
     }
 
     @GET
+    @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
     public String getInvoices(@QueryParam("invoice") String invoice) throws FileNotFoundException, IOException, URISyntaxException, ParseException {
 
@@ -69,5 +71,13 @@ public class ShowInvoices {
         invoiceDetailsJson.put( "Invoice Details", finalInvoice );
 
         return( invoiceDetailsJson.toString() );
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance get(@QueryParam("token") String token) {
+
+        TemplateInstance invoiceListTemplate=showInvoices.data("token", "accessToken");
+        return invoiceListTemplate;
     }
 }
