@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Quarkus Finance Web Application</title>
+    <title>Quarkus Finance Web Application: Show Invoices</title>
 
     <script type="text/javascript">
         function changeContent(url) {
@@ -21,7 +21,7 @@
         <div class="grid">
             <div class="banner">
                 <div class="grid">
-                    <div class="callout">Quarkus Finance Web Application</div>
+                    <div class="callout">Quarkus Finance Web Application: List of Invoices</div>
                     <div class="app-details">
                         <h5>Application</h5>
                         <ul>
@@ -43,6 +43,21 @@
                 <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices</a></code>
                 <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
                 <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns</a></code>
+                <div id="invoicesoutput" > 
+                    <table border="1">
+                        <tr><th>Invoice ID</th> <th>Item</th><th>Customer</th><th>Date</th><th>Amount (€)</th>                        </tr>
+                        {#for invoice in invoices} 
+                        <tr>
+                           <td>{invoice.id}</td>
+                           <td>{invoice.item}</td>
+                            <td>{invoice.name}</td>
+                           <td>{invoice.date}</td>
+                           <td>{invoice.amount}</td>
+                        </tr>
+                        {/for}
+                    </table>
+                </div>
+                <div><a href="/finance">Back</a></div> 
             </div>
             <div class="right-column" id="messages">
                 <h4>This application uses the following Quarkus extensions</h4>
@@ -60,6 +75,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
