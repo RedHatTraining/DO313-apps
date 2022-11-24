@@ -40,9 +40,24 @@
             <div class="left-column">
                 <br />&rsaquo;
                 <code>@Path: <a href="showtokens" class="path-link">/showtokens</a></code>
-                <br />&rsaquo; <code>@Path: <a href="/show-invoices" class="path-link">/showinvoices</a></code>
+                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices</a></code>
                 <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
                 <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns</a></code>
+                <div id="invoicesoutput" > 
+                    <table border="1">
+                        <tr><th>Invoice ID</th> <th>Item</th><th>Customer</th><th>Date</th><th>Amount (€)</th>                        </tr>
+                        {#for invoice in invoices} 
+                        <tr>
+                           <td>{invoice.id}</td>
+                           <td>{invoice.item}</td>
+                            <td>{invoice.name}</td>
+                           <td>{invoice.date}</td>
+                           <td>{invoice.amount}</td>
+                        </tr>
+                        {/for}
+                    </table>
+                </div>
+                <div><a href="/finance">Back</a></div> 
             </div>
             <div class="right-column" id="messages">
                 <h4>This application uses the following Quarkus extensions</h4>
