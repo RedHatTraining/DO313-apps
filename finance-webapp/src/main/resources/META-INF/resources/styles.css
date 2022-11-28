@@ -244,3 +244,10 @@ a:active {
         grid-column: span 12;
     }
 }
+td {
+    width: 700px;
+    max-width: 700px; /* add this */
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}

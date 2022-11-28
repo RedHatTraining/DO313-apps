@@ -57,7 +57,7 @@
                 <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns (Public endpoint)</a></code>
                 <h4>Hi, {token.getName()}</h4>
                  Access token claims :
-                <table>
+                <table style="font-family: 'Courier New', Courier, monospace; font-size: 12px ;">
                     {#for claim in token.getClaimNames()}
                       <tr><td>{claim}</td><td>{token.getClaim(claim)}</td></tr>
                     {/for}

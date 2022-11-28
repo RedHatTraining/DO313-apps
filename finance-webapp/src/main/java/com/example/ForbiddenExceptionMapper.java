@@ -12,8 +12,7 @@ import io.quarkus.security.ForbiddenException;
 @Priority(1)//override the build-int mapper(which has 5001 prio)
 public class ForbiddenExceptionMapper implements ExceptionMapper<ForbiddenException> {
   @Override
-  public Response toResponse(ForbiddenException exception) {
-    System.out.println("TU EXCEPCION JODER");
+  public Response toResponse(ForbiddenException exception) {   
     return Response.serverError().entity("{\"message\":\"You are not in the required role\"}").build();
     //return Response.status(Response.Status.FORBIDDEN)
       
