@@ -12,6 +12,16 @@
             document.getElelementById("messages").innerHTML = { contentMessages };
             return (false);
         }
+        function showInvoiceForm(){
+            document.getElementById("messages").innerHTML = "<form action='addinvoices' method='get'>"
+                +"<br/>Invoice ID: <input type='text' id='invoiceId' name='invoiceId'/>"
+                +"<br/>Customer: <input type='text' id='name' name='name'/>"
+                +"<br/>Product: <input type='text' id='item' name='item'/>"
+                +"<br/>Date: <input type='text' id='date' name='date'/>"
+                +"<br/>Amount: <input type='text' id='amount' name='amount'/>"
+                +"<br/><input type='submit'/>"
+                +"</form>"
+        }
     </script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
@@ -41,24 +51,24 @@
         <div class="grid">
             <div class="left-column" style="grid-column: span 4;">
                 <br />&rsaquo;
-                <code>@Path: <a href="showtokens" class="path-link">/showtokens</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices</a></code>
-                <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns</a></code>
-                <h4>This is your Access token, {token.getName()}</h4>
-                <div id="tokenOutput" style="width: 90%; border: 2px solid #000000;">                            
-                    {token}
-                </div>
+                <code>@Path: <a href="showtokens" class="path-link">/showtokens (Needs Authentication: any user)</a></code>
+                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices (Needs authorization: finance-user role)</a></code>
+                <br />&rsaquo; <code>@Path: <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices (Needs authorization: finance-admin role)</a></code>
+                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns (Public endpoint)</a></code>
+                <h4>Hi, {token.getName()}</h4>
+                 Access token claims :
+                <table>
+                    {#for claim in token.getClaimNames()}
+                      <tr><td>{claim}</td><td>{token.getClaim(claim)}</td></tr>
+                    {/for}
+                </table>
+                
+                
                 <div><a href="/finance">Back</a></div> 
             </div>
-            <div class="right-column" id="messages" style="grid-column: span 4;">
-                Claims:
-                <ul>
-                {#for claim in token.getClaimNames()}
-            
-                 <li>{claim} : {token.getClaim(claim)}</li>
-                {/for}
-              </ul>
+            <div class="right-column" id="messages" style="grid-column: span 4; font-size: 14px;;">
+                
+              
             </div>
         </div>
     </div>

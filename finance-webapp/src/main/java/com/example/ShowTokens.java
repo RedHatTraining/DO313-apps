@@ -37,7 +37,8 @@ public class ShowTokens {
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get(@QueryParam("token") String token) {
        
-        TemplateInstance theTemplate=showtokens.data("token", accessToken);                    
+        TemplateInstance theTemplate=showtokens.data("token", accessToken);
+        
         return theTemplate;
     }
 

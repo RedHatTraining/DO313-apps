@@ -10,6 +10,16 @@
             document.getElelementById("messages").innerHTML = { contentMessages };
             return (false);
         }
+        function showInvoiceForm(){
+            document.getElementById("messages").innerHTML = "<form action='addinvoices' method='get'>"
+                +"<br/>Invoice ID: <input type='text' id='invoiceId' name='invoiceId'/>"
+                +"<br/>Customer: <input type='text' id='name' name='name'/>"
+                +"<br/>Product: <input type='text' id='item' name='item'/>"
+                +"<br/>Date: <input type='text' id='date' name='date'/>"
+                +"<br/>Amount: <input type='text' id='amount' name='amount'/>"
+                +"<br/><input type='submit'/>"
+                +"</form>"
+        }
     </script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
@@ -39,10 +49,10 @@
         <div class="grid">
             <div class="left-column">
                 <br />&rsaquo;
-                <code>@Path: <a href="showtokens" class="path-link">/showtokens</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices</a></code>
-                <br />&rsaquo; <code>@Path: <a href="/add-invoices" class="path-link">/addinvoices</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns</a></code>
+                <code>@Path: <a href="showtokens" class="path-link">/showtokens (Needs Authentication: any user)</a></code>
+                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices (Needs authorization: finance-user role)</a></code>
+                <br />&rsaquo; <code>@Path: <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices (Needs authorization: finance-admin role)</a></code>
+                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns (Public endpoint)</a></code>
                 <div id="invoicesoutput" > 
                     <table border="1">
                         <tr><th>Invoice ID</th> <th>Item</th><th>Customer</th><th>Date</th><th>Amount (€)</th>                        </tr>

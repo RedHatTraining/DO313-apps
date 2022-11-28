@@ -4,7 +4,6 @@ import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.json.simple.JSONArray;
@@ -38,17 +37,19 @@ public class ShowInvoices {
     public Object read_invoices() throws FileNotFoundException, IOException, URISyntaxException, ParseException {
         URL fileResource = this.getClass().getClassLoader().getResource( jsonFileName );
         File jsonResourceFile = new File( fileResource.toURI() );
-        return new JSONParser().parse( new FileReader( jsonResourceFile.toPath().toString() ) );
+        return new JSONParser().parse( new FileReader( jsonResourceFile) );
     }
 
     @GET    
     @Produces(MediaType.APPLICATION_JSON)
-    public TemplateInstance get(@QueryParam("invoices") String invoice) {
+    public TemplateInstance get() {
 
         // Get invoice data from Json file
         try{
-          invoices = (JSONArray)( read_invoices());
+          invoices = (JSONArray) read_invoices();
         }catch(IOException|URISyntaxException|ParseException excp){
+          System.out.println("ERROR: "+excp);
+          excp.printStackTrace();
           invoices = new JSONArray();
           
           //invoices.put("error", excp.toString());  
