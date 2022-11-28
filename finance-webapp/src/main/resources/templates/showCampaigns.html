@@ -49,10 +49,11 @@
         <div class="grid">
             <div class="left-column">
                 <br />&rsaquo;
-                <code>@Path: <a href="showtokens" class="path-link">/showtokens (Needs Authentication: any user)</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showinvoices" class="path-link">/showinvoices (Needs authorization: finance-user role)</a></code>
-                <br />&rsaquo; <code>@Path: <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices (Needs authorization: finance-admin role)</a></code>
-                <br />&rsaquo; <code>@Path: <a href="showcampaigns" class="path-link">/showcampaigns (Public endpoint)</a></code>
+                <code>@Path protected by Java annotation @Authenticated<br/> <a href="showtokens" class="path-link">/showtokens</a></code>
+
+                <br />&rsaquo; <code>@Path protected by Java annotation @RolesAllowed("finance-user") <a href="showinvoices" class="path-link">/showinvoices</a></code>
+                <br />&rsaquo; <code>@Path protected by Java annotation @RolesAllowed("finance-admin") <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices </a></code>
+                <br />&rsaquo; <code>@Path public: <a href="showcampaigns" class="path-link">/showcampaigns </a></code>
             </div>
             <div class="right-column" id="messages">
                 <h4>This application uses the following Quarkus extensions</h4>

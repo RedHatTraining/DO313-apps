@@ -58,11 +58,12 @@ a {
 a:hover,
 a:active {
     color: #c00;
+    cursor: pointer;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     clear: both;
 }
 
