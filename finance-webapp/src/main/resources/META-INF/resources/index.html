@@ -60,16 +60,14 @@
     <div class="content-wrapper">
         <div class="grid">
             <div class="left-column">
-                <br />&rsaquo;
-                <code>@Path protected by Java annotation @Authenticated<br/> <a href="showtokens" class="path-link">Show my access token</a></code>
-
+                <br />&rsaquo;<code>@Path protected by Java annotation @Authenticated <a href="showtokens" class="path-link">Show my access token</a></code>
                 <br />&rsaquo;
                 <code>@Path protected by Java annotation @RolesAllowed("finance-user") <a href="showinvoices" class="path-link">/showinvoices</a></code>
                 <br />&rsaquo;
                 <code>@Path protected by Java annotation @RolesAllowed("finance-admin") <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices </a></code>
-                <!--      <br />&rsaquo; <code>@Path public: <a href="showcampaigns/list" class="path-link">/showcampaigns/list </a></code>-->
+                <!--      <br />&rsaquo; <code>@Path public: <a href="showcampaigns/list" class="path-link">External API: http://localhost:3000/campaign/list</a></code>-->
                 <br />&rsaquo;
-                <code>@Path protected in external API(authenticated user) <a onclick="javascript:showCampaignList();return false;" class="path-link">/showcampaigns/list </a></code>
+                <code>@Path protected in external API(authenticated user) <a onclick="javascript:showCampaignList();return false;" class="path-link">External API: http://localhost:3000/campaign/list</a></code>
             </div>
             <div class="right-column" id="messages">
                 
