@@ -9,6 +9,7 @@
     "body-parser": "^1.13.3",
     "cors": "^2.8.1",
     "express": "^4.13.3",
+    "express-requests-logger": "^3.0.4",
     "express-session": "^1.14.2",
     "jwt-decode": "^3.1.2",
     "keycloak-connect": "keycloak/keycloak-nodejs-connect"
@@ -22,7 +23,7 @@
     "eslint-plugin-standard": "^2.0.0",
     "ink-docstrap": "^1.1.4",
     "jsdoc": "^3.4.0",
-    "jshint": "^2.9.1",
+    "jshint": "^2.13.6",
     "keycloak-client-registration": "^0.1.0",
     "keycloak-request-token": "^0.1.0",
     "roi": "^0.15.0",

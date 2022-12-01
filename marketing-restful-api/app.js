@@ -1,15 +1,30 @@
 
+
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+
 const Keycloak = require('keycloak-connect');
 const cors = require('cors');
-const jwt_decode = require('jwt-decode')
+const jwt_decode = require('jwt-decode');
+
+const audit = require('express-requests-logger');
 const app = express();
 app.use(bodyParser.json());
 
 // Enable CORS support
 app.use(cors());
+
+//request logger:
+app.use(audit({
+  logger: logger, // Existing bunyan logger
+  request: {
+      excludeBody: '*', // Exclude all body
+  },
+  response: {
+      excludeBody: '*' // Exclude all body from responses
+  }
+}));
 
 // Create a session-store to be used by both the express-session
 // middleware and the keycloak middleware.
@@ -90,11 +105,3 @@ app.use('*', function (req, res) {
 app.listen(3000, function () {
   console.log('Started at port 3000');
 });
-
-function logTokens(req) {
-  //console.log("ID Token: "+JSON.stringify(jwt_decode(keycloak.idToken), null, '  '));
-  //console.log("Access Token: "+JSON.stringify(jwt_decode(keycloak.token), null, '  '));
-  console.log("TOKEN: "+keycloak.token);
-  //console.log("Peticion " + req.message);
-
-}
