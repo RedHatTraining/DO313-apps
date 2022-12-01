@@ -16,15 +16,16 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //request logger:
-app.use(audit({
-  logger: logger, // Existing bunyan logger
+app.use(audit());
+/*app.use(audit({
+  
   request: {
       excludeBody: '*', // Exclude all body
   },
   response: {
       excludeBody: '*' // Exclude all body from responses
   }
-}));
+}));*/
 
 // Create a session-store to be used by both the express-session
 // middleware and the keycloak middleware.
@@ -55,7 +56,7 @@ app.use(keycloak.middleware({
 
 app.get('/campaign/list', keycloak.protect(), function (req, res) {
   console.log("Listing campaigns");
-  logTokens(req);
+  
   if (res.status == 403) {
     console.log("You need to be authenticated");
     res.json({ message: 'You need to be authenticated' });
