@@ -4,7 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const Keycloak = require('keycloak-connect');
 const cors = require('cors');
-const jwt_decode= require('jwt-decode')
+const jwt_decode = require('jwt-decode')
 const app = express();
 app.use(bodyParser.json());
 
@@ -17,7 +17,7 @@ app.use(cors());
 const memoryStore = new session.MemoryStore();
 
 app.use(session({
-  secret: 'some secret',
+  secret: 'f60OrkxQNIlIv8P9BbD69pH62dq1ySeE',
   resave: false,
   saveUninitialized: true,
   store: memoryStore
@@ -38,13 +38,27 @@ app.use(keycloak.middleware({
   admin: '/admin'
 }));
 
-app.get('/campaign/list', function (req, res) {
+app.get('/campaign/list', keycloak.protect(), function (req, res) {
+  console.log("Listing campaigns");
   logTokens(req);
-  req.
-  res.json({message: 'Listing all public campaigns'});
+  if (res.status == 403) {
+    console.log("You need to be authenticated");
+    res.json({ message: 'You need to be authenticated' });
+  } else {
+    //res.json({message: 'You can list the campaigns'});
+    res.json(
+      [
+        { 'name': 'New Product announce', 'description':'We are releasing a new product' },
+        { 'name': 'Summer Time Season', 'description':'Summer is coming' },
+        { 'name': 'Singles day Promotions', 'description':'We have big discounts for singles!!!' },
+        { 'name': 'Spring Collection', 'description':'Spring is coming' },
+        { 'name': 'Black Friday Discounts', 'description':'Almost everything for free' }]
+      );
+  }
+
 });
 
-app.get('/campaign/add', keycloak.protect('realm:marketing-user'), function (req, res) {
+/*app.get('/campaign/add', keycloak.protect('realm:marketing-user'), function (req, res) {
   logTokens(req);
   
     if (res.status == 403) {
@@ -67,7 +81,7 @@ app.get('/campaign/delete', keycloak.protect('realm:marketing-admin'), function 
     }
   
   
-});
+});*/
 
 app.use('*', function (req, res) {
   res.send('Not found!');
@@ -77,9 +91,10 @@ app.listen(3000, function () {
   console.log('Started at port 3000');
 });
 
-function logTokens(req){
+function logTokens(req) {
   //console.log("ID Token: "+JSON.stringify(jwt_decode(keycloak.idToken), null, '  '));
   //console.log("Access Token: "+JSON.stringify(jwt_decode(keycloak.token), null, '  '));
-  console.log("Peticion "+req.message);
-  
+  console.log("TOKEN: "+keycloak.token);
+  //console.log("Peticion " + req.message);
+
 }

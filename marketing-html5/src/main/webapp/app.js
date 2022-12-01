@@ -34,7 +34,7 @@ function request(endpoint) {
         req.onreadystatechange = function () {
             if (req.readyState == 4) {
                 if (req.status == 200) {
-                    output.innerHTML = 'Message: ' + JSON.parse(req.responseText).message;
+                    output.innerHTML =  JSON.stringify(req.responseText);
                 } else if (req.status == 0) {
                     output.innerHTML = '<span class="error">Request to Marketing API failed</span>';
                 } else if (req.status == 403) {
