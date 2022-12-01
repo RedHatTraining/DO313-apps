@@ -1,6 +1,9 @@
 # do313-apps
 These applications authenticate and authorize the users using a RH-SSO server listening on 8180.
 
+      
+![OIDC architecture](do313-apps.png "Title")
+
 Start your RHSSO server and import the provided realm JSON file from the Admin Console --> Add Realm.
 It creates the realm, the alice user, and one client for each application.
 
