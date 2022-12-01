@@ -4,8 +4,10 @@
 * The student DOES NOT touch source code, only config files if needed
 * These applications authenticate and authorize the users using a RH-SSO server listening on 8180. Will need to change to DNS names and ports from the classroom.
 
-      
-![OIDC architecture](do313-apps.png "Title")
+![OIDC architecture 1](do313-apps.png "Title")
+
+
+![OIDC architecture 2](do313-apps-2.png "Title")
 
 Start your RHSSO server and import the provided realm JSON file from the Admin Console --> Add Realm.
 It creates the realm, the alice user, and one client for each application.

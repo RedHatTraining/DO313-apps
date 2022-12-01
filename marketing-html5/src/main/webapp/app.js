@@ -29,6 +29,8 @@ function request(endpoint) {
         if (keycloak.authenticated) {
            req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
            //req.setRequestHeader('Authorization', 'Bearer ' + keycloak.idToken); --> does not have roles, by default
+        }else{
+            alert("Warning, you are not athenticated");
         }
 
         req.onreadystatechange = function () {
