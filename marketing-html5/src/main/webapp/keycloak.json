@@ -1,5 +1,5 @@
 {
-  "realm": "rhsso-training",
+  "realm": "rhtraining",
   "auth-server-url": "http://localhost:8180/auth/",
   "ssl-required": "external",
   "resource": "marketing-html5",

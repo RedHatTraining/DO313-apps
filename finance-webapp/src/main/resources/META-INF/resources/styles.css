@@ -58,11 +58,12 @@ a {
 a:hover,
 a:active {
     color: #c00;
+    cursor: pointer;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     clear: both;
 }
 
@@ -243,4 +244,11 @@ a:active {
         font-weight: 300;
         grid-column: span 12;
     }
+}
+td {
+    width: 700px;
+    max-width: 700px; /* add this */
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
 }

@@ -29,12 +29,14 @@ function request(endpoint) {
         if (keycloak.authenticated) {
            req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
            //req.setRequestHeader('Authorization', 'Bearer ' + keycloak.idToken); --> does not have roles, by default
+        }else{
+            alert("Warning, you are not athenticated");
         }
 
         req.onreadystatechange = function () {
             if (req.readyState == 4) {
                 if (req.status == 200) {
-                    output.innerHTML = 'Message: ' + JSON.parse(req.responseText).message;
+                    output.innerHTML =  JSON.stringify(req.responseText);
                 } else if (req.status == 0) {
                     output.innerHTML = '<span class="error">Request to Marketing API failed</span>';
                 } else if (req.status == 403) {
