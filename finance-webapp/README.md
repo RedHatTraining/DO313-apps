@@ -59,3 +59,46 @@ If you want to learn more about building native executables, please consult http
 Create your web page using Quarkus RESTEasy & Qute
 
 [Related guide section...](https://quarkus.io/guides/qute#type-safe-templates)
+
+## Deploying application on OpenShift
+
+### Build Package
+Run 
+```shell script
+./mvnw clean install
+```
+
+### Login to OpenShift
+
+```shell script
+oc login --token=<TOKEN> --server=<SERVER_URL>
+```
+
+### Add OpenShift Maven plugin
+
+Add the plugin to the `profiles` section of `pom.xml`
+
+```
+<profile>
+      <id>openshift</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>openshift-maven-plugin</artifactId>
+            <version>1.10.1</version>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+```
+
+### Deploy the application to OpenShift
+
+```shell script
+./mvnw oc:build oc:resource oc:apply -Popenshift
+```
+
+**oc:build** Build and push the image to OpenShift. 
+**oc:resource** Create YAML files for application in the `target/classes/META-INF/jkube/openshift` directory.
+**oc:apply** Apply YAML files to openshift.
