@@ -54,7 +54,7 @@ app.use(keycloak.middleware({
   admin: '/admin'
 }));
 
-app.get('/campaign/list', keycloak.protect(), function (req, res) {
+app.get('/campaign/list', keycloak.protect('realm:marketing-analyst'), function (req, res) {
   console.log("Listing campaigns");
   
   if (res.status == 403) {
@@ -74,11 +74,11 @@ app.get('/campaign/list', keycloak.protect(), function (req, res) {
 
 });
 
-/*app.get('/campaign/add', keycloak.protect('realm:marketing-user'), function (req, res) {
+/*app.get('/campaign/add', keycloak.protect('realm:marketing-analyst'), function (req, res) {
   logTokens(req);
   
     if (res.status == 403) {
-      res.json({message: 'You need the marketing-user role'});
+      res.json({message: 'You need the marketing-analyst role'});
     } else {
       res.json({message: 'You can add a campaign'});
     }

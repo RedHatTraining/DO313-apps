@@ -23,7 +23,7 @@ import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
 @Path("/showinvoices")
-@RolesAllowed("finance-user")
+@RolesAllowed("accountant")
 public class ShowInvoices {
 
     private final Template showInvoices;    

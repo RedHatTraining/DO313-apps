@@ -73,7 +73,7 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-oidc-token-propagation</artifactId>
     </dependency>
-    
+
 
 
 
