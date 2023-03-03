@@ -1,6 +1,6 @@
 # do313-apps
-
-* This repo have a directory for every GE in the book that need the applications in different states: only authentication, with authz with roles, with authz with oauth2 scopes...
+This repository contains the applications in use in the Red Hat Single Sign-On Administration course (DO313).
+* The repository has a directory for every guided exercise in the book. The applications are in different states: only authentication, with authorization using roles, with authorization with oauth2 scopes, etcetera.
 * The student DOES NOT touch source code, only config files if needed
 * These directories provide the applications that are deployed in the `/home/student/DO313/labs` directory of the `workstation` machine.
 
