@@ -1,0 +1,32 @@
+{
+  "name": "marketing-restful-api",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js",
+    "test": "tape test/*.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.8.1",
+    "express": "^4.13.3",
+    "express-requests-logger": "^3.0.4",
+    "express-session": "^1.14.2",
+    "jwt-decode": "^3.1.2",
+    "keycloak-connect": "keycloak/keycloak-nodejs-connect"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-semistandard": "^7.0.0-beta.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-react": "^6.1.2",
+    "eslint-plugin-standard": "^2.0.0",
+    "ink-docstrap": "^1.1.4",
+    "jsdoc": "^3.4.0",
+    "jshint": "^2.13.6",
+    "keycloak-client-registration": "^0.1.0",
+    "keycloak-request-token": "^0.1.0",
+    "roi": "^0.15.0",
+    "tape": "^4.5.1"
+  }
+}

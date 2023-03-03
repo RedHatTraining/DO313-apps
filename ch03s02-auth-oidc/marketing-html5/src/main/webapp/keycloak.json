@@ -1,0 +1,8 @@
+{
+  "realm": "rhtraining",
+  "auth-server-url": "https://sso.lab.example.com:8080/auth/",
+  "ssl-required": "external",
+  "resource": "marketing-html5",
+  "public-client": true,
+  "confidential-port": 0
+}

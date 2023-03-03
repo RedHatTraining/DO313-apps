@@ -1,0 +1,23 @@
+[
+    {
+        "id": 12120,
+        "name": "John Doe",
+        "item": "Refrigerator",
+        "date": "01-01-2022",
+        "amount": "440"
+    },
+    {
+        "id": 12121,
+        "name": "Alice in Chains",
+        "item": "Vacuum Cleaner",
+        "date": "10-02-2022",
+        "amount": "300"
+    },
+    {
+        "id": 12122,
+        "name": "John Doe",
+        "item": "Kettle",
+        "date": "11-08-2022",
+        "amount": "130"
+    }
+]
