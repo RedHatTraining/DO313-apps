@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Quarkus Finance Web Application</title>
+    
+        <script type="text/javascript">
+            function changeContent(url) {
+                document.getElementById("messages").innerHTML = { contentMessages };
+                return (false);
+            }
+            function showInvoiceForm() {
+                document.getElementById("messages").innerHTML = "<form action='addinvoices' method='get'>"
+                    + "<br/>Invoice ID: <input type='text' id='invoiceId' name='invoiceId'/>"
+                    + "<br/>Customer: <input type='text' id='name' name='name'/>"
+                    + "<br/>Product: <input type='text' id='item' name='item'/>"
+                    + "<br/>Date: <input type='text' id='date' name='date'/>"
+                    + "<br/>Amount: <input type='text' id='amount' name='amount'/>"
+                    + "<br/><input type='submit'/>"
+                    + "</form>"
+            }
+            function showCampaignList(e){
+                (e || window.event).preventDefault();
+    
+                fetch("showcampaigns/list")
+                    .then((response) => response.text())
+                    .then((html) => {
+                        document.getElementById("messages").innerHTML = html;
+                    })
+                    .catch((error) => {
+                        console.warn(error);
+                        document.getElementById("messages").innerHTML = error;
+                    });
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    
+    </head>
+<body>
+
+    <div class="banner-wrapper">
+        <div class="grid">
+            <div class="banner">
+                <div class="grid">
+                    <div class="callout">Quarkus Finance Web Application</div>
+                    <div class="app-details">
+                        <h5>Red Hat Training</h5>
+                        <ul>
+                            <li>Java Quarkus</li>
+                            <li>OIDC integration with <code>quarkus-oidc</code> extension.</li>
+                            <li>Authentication Code Flow with confidential client.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="grid">
+            <div class="left-column">
+                <br />&rsaquo;
+                <code>@Path protected by Java annotation @Authenticated <a href="showtokens" class="path-link">Show my access token</a></code>
+
+                <br />&rsaquo;
+                <code>@Path protected by Java annotation @RolesAllowed("finance-user") <a href="showinvoices" class="path-link">/showinvoices</a></code>
+                <br />&rsaquo;
+                <code>@Path protected by Java annotation @RolesAllowed("finance-admin") <a onclick="javascript:showInvoiceForm();return false;" class="path-link">/addinvoices </a></code>
+                <!--      <br />&rsaquo; <code>@Path public: <a href="showcampaigns/list" class="path-link">External API: http://localhost:3000/campaign/list</a></code>-->
+                <br />&rsaquo;
+                <code>@Path protected in external API(authenticated user) <a onclick="javascript:showCampaignList();return false;" class="path-link">External API: http://localhost:3000/campaign/list</a></code>
+               
+                
+            </div>
+            <div class="right-column" id="messages">
+                <table border="1">
+                    <tr><th>Invoice ID</th> <th>Item</th><th>Customer</th><th>Date</th><th>Amount (€)</th>                        </tr>
+                    {#for invoice in invoices} 
+                    <tr>
+                       <td>{invoice.id}</td>
+                       <td>{invoice.item}</td>
+                        <td>{invoice.name}</td>
+                       <td>{invoice.date}</td>
+                       <td>{invoice.amount}</td>
+                    </tr>
+                    {/for}
+                </table>
+                <div><a href="/finance">Back</a></div> 
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
